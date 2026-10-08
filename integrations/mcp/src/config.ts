@@ -25,6 +25,8 @@ const Merchant = z.object({
   /** Spend cap for this merchant within one plan window. */
   maxSpend: usdc,
   label: z.string().max(80).optional(),
+  /** Optional timeout override (e.g. for long-running merchants) */
+  maxTimeoutSeconds: z.number().int().min(10).max(86400).optional(),
 });
 
 export const Config = z

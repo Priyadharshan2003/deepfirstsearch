@@ -52,6 +52,7 @@ export function buildServer(config: Config, secrets: Secrets, overrides: Partial
       pricePin: m.price,
       toleranceBps: Math.round(m.tolerancePct * 100),
       ...(m.label ? { label: m.label } : {}),
+      ...(m.maxTimeoutSeconds !== undefined ? { maxTimeoutSeconds: m.maxTimeoutSeconds } : {}),
     })),
   );
 
